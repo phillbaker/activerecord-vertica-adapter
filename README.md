@@ -1,0 +1,2 @@
+activerecord-vertica-adapter
+============================
