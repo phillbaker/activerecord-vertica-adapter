@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+*.rbenv
 .bundle
 .config
 coverage
