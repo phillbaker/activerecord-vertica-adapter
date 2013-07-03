@@ -405,7 +405,7 @@ module ActiveRecord
       # Executes an SQL statement, returning a result object on success
       def execute(sql, name = nil, &block)
         log(sql, name) do
-          @connection.execute(sql, &block)
+          @connection.query(sql, &block)
         end
       end
 
@@ -752,7 +752,7 @@ module ActiveRecord
         # Connects to a Vertica server and sets up the adapter depending on the
         # connected server's characteristics.
         def connect
-          @connection = Vertica::Connection.new(*@connection_parameters)
+          @connection = Vertica::Connection.new(@config)
           Vertica.translate_results = false if Vertica.respond_to?(:translate_results=)
 
           # Ignore async_exec and async_query when using postgres-pr.
